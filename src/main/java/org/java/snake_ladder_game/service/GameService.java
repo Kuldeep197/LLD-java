@@ -78,7 +78,7 @@ public class GameService {
     }
 
     public static boolean isWinner(Player player, int finalPos, Board board){
-        System.out.println("Your initial position : " + finalPos);
+         System.out.println("Your initial position : " + finalPos);
         int[] gameBoard = board.getBoard();
         if(finalPos > 100){
             System.out.println("Oops you got " + finalPos);

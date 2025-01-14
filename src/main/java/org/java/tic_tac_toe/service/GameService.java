@@ -33,14 +33,14 @@ public class GameService {
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             String[] values = input.split(",");
-            int inputRow = Integer.valueOf(values[0]);
-            int inputCol = Integer.valueOf(values[1]);
+            int inputRow = Integer.parseInt(values[0]);
+            int inputCol = Integer.parseInt(values[1]);
             if (!isValidPosition(board, inputRow, inputCol)) {
                 System.out.println("Please enter correct x , y coords :  ");
                 input = scanner.nextLine();
                 values = input.split(",");
-                inputRow = Integer.valueOf(values[0]);
-                inputCol = Integer.valueOf(values[1]);
+                inputRow = Integer.parseInt(values[0]);
+                inputCol = Integer.parseInt(values[1]);
                 if (!isValidPosition(board, inputRow, inputCol)) {
                     System.out.println("Exiting game due to input failure ");
                     gameFinished = true;
