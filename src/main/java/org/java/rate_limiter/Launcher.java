@@ -1,12 +1,10 @@
 package org.java.rate_limiter;
 
-import org.java.rate_limiter.strategy.LeakyBucketRateLimiter;
-import org.java.rate_limiter.strategy.RateLimiter;
-import org.java.rate_limiter.strategy.TokenBucketRateLimiter;
+import org.java.rate_limiter.strategy.*;
 
 public class Launcher {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         TokenBucketRateLimiter tokenBucketRateLimiter = new TokenBucketRateLimiter(10, 5);
         System.out.println("Is Requests allowed with " + 10 + " requests "+ tokenBucketRateLimiter.allowRequest(10));
         System.out.println("Is Requests allowed with " + 20 + " requests "+ tokenBucketRateLimiter.allowRequest(20));
@@ -22,5 +20,28 @@ public class Launcher {
         System.out.println(leakyBucketRateLimiter.submitRequest("Request 6"));
         System.out.println(leakyBucketRateLimiter.submitRequest("Request 7"));
         leakyBucketRateLimiter.shutdown();
+
+
+        FixedWindowRateLimiter fixedWindowRateLimiter = new FixedWindowRateLimiter(3, 1000l);
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId1"));
+        Thread.sleep(1000);
+        System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+
+
+        SlidingWindowRateLimiter slidingWindowRateLimiter = new SlidingWindowRateLimiter(3,1000l);System.out.println(fixedWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId"));
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId1"));
+        Thread.sleep(1000);
+        System.out.println(slidingWindowRateLimiter.allowRequest("UserId"));
     }
 }
