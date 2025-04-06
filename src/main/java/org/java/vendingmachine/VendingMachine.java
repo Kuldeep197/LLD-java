@@ -1,8 +1,5 @@
 package org.java.vendingmachine;
 
-import org.java.vendingmachine.exception.InsufficientCashException;
-import org.java.vendingmachine.exception.InsufficientQuantityException;
-
 import java.util.Map;
 
 public class VendingMachine {

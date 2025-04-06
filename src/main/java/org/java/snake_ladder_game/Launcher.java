@@ -1,6 +1,5 @@
 package org.java.snake_ladder_game;
 
-import org.java.snake_ladder_game.data.Game;
 import org.java.snake_ladder_game.service.GameService;
 
 public class Launcher {
