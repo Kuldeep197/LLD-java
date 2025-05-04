@@ -64,7 +64,7 @@ public class Launcher {
         loadBalancer2.addServer(server4);
 
         for(int i=0;i<10;i++){
-            loadBalancer2.routeRequest(new Request("request "+ i, "/getResource", "sessionId1"));
+             loadBalancer2.routeRequest(new Request("request "+ i, "/getResource", "sessionId1"));
         }
 
     }
